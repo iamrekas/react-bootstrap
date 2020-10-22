@@ -18,6 +18,8 @@ const propTypes = {
 
   role: PropTypes.string,
 
+  disableFocus: PropTypes.boolean,
+
   /** @private */
   onKeyDown: PropTypes.func,
   /** @private */
@@ -40,6 +42,7 @@ interface AbstractNavProps {
   onSelect?: any;
   parentOnSelect?: any;
   role?: string;
+  disableFocus?: boolean;
 }
 
 type AbstractNav = BsPrefixRefForwardingComponent<'ul', AbstractNavProps>;
@@ -53,6 +56,7 @@ const AbstractNav: AbstractNav = React.forwardRef(
       activeKey,
       role,
       onKeyDown,
+      disableFocus = false,
       ...props
     }: AbstractNavProps,
     ref,
@@ -129,7 +133,7 @@ const AbstractNav: AbstractNav = React.forwardRef(
           '[data-rb-event-key].active',
         );
 
-        if (activeChild) activeChild.focus();
+        if (activeChild && disableFocus) activeChild.focus();
       }
 
       needsRefocusRef.current = false;
