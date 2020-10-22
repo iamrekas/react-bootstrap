@@ -109,6 +109,9 @@ const propTypes = {
   /** @private */
   onKeyDown: PropTypes.func,
 
+  /**
+   * Disable focusing element
+   */
   disableFocus: PropTypes.bool,
 };
 

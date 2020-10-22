@@ -18,6 +18,9 @@ const propTypes = {
 
   role: PropTypes.string,
 
+  /**
+   * Disable focusing element
+   */
   disableFocus: PropTypes.bool,
 
   /** @private */
