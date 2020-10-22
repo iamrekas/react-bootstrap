@@ -18,7 +18,7 @@ const propTypes = {
 
   role: PropTypes.string,
 
-  disableFocus: PropTypes.boolean,
+  disableFocus: PropTypes.bool,
 
   /** @private */
   onKeyDown: PropTypes.func,

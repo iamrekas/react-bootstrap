@@ -29,6 +29,7 @@ export interface NavProps extends BsPrefixPropsWithChildren {
   role?: string;
   navbar?: boolean;
   onKeyDown?: React.KeyboardEventHandler<this>;
+  disableFocus?: boolean;
 }
 
 type Nav = BsPrefixRefForwardingComponent<'div', NavProps> & {
@@ -107,6 +108,8 @@ const propTypes = {
 
   /** @private */
   onKeyDown: PropTypes.func,
+
+  disableFocus: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -125,6 +128,7 @@ const Nav: Nav = (React.forwardRef((uncontrolledProps: NavProps, ref) => {
     className,
     children,
     activeKey,
+    disableFocus = false,
     ...props
   } = useUncontrolled(uncontrolledProps, { activeKey: 'onSelect' });
 
@@ -157,6 +161,7 @@ const Nav: Nav = (React.forwardRef((uncontrolledProps: NavProps, ref) => {
         [`${bsPrefix}-fill`]: fill,
         [`${bsPrefix}-justified`]: justify,
       })}
+      disableFocus={disableFocus}
       {...props}
     >
       {children}
